@@ -17,3 +17,4 @@ namespace Golden_ratio_method
         }
     }
 }
+
