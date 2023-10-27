@@ -85,5 +85,19 @@ namespace Golden_ratio_method
             }
         }
         
+        //справка о программе
+        private void ReferenceClick(object sender, EventArgs e)
+        {
+            Reference reference = new Reference();
+            reference.Show();
+        }
+
+        //разработчик программы
+        private void DeveloperClick(object sender, EventArgs e)
+        {
+            Developer developer = new Developer();
+            developer.Show();
+        }
+        
     }
 }
