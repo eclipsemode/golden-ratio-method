@@ -46,6 +46,12 @@
         <Compile Include="Tests.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Golden-ratio-method.csproj">
+        <Project>{3409a2fb-dcac-46bf-97d2-34673a2a0194}</Project>
+        <Name>Golden-ratio-method</Name>
+      </ProjectReference>
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.

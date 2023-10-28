@@ -130,7 +130,7 @@ namespace Golden_ratio_method
             // lblResult
             // 
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(200, 210);
+            this.lblResult.Location = new System.Drawing.Point(270, 210);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(0, 13);
             this.lblResult.TabIndex = 2;

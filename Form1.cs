@@ -6,6 +6,8 @@ namespace Golden_ratio_method
 {
     public partial class Form1 : Form
     {
+        private GoldenMethod _goldenMethod = new GoldenMethod();
+        private Func<double, double> fx = x => 4 - Math.Pow(x, 2) - 0.2 * Math.Pow(x, 3);
         public Form1()
         {
             InitializeComponent();
@@ -13,10 +15,6 @@ namespace Golden_ratio_method
         
         private void MainFormLoad(object sender, EventArgs e)
         {
-        }
-        private double F(double x)
-        {
-            return Math.Atan(x) * Math.Cos(x) + 1;
         }
         private void BtnCalculateClick(object sender, EventArgs e)
         {
@@ -30,37 +28,18 @@ namespace Golden_ratio_method
                 return;
             }
             
-            double a, b, x1, x2;
-            double eps = 0.001;
-            int n = 0;
+            double a, b;
 
             // Получение значений от пользователя
             a = double.Parse(txtA.Text);
             b = double.Parse(txtB.Text);
-            x1 = a + 0.381966 * (b - a);
-            x2 = a + 0.618034 * (b - a);
-
-            while ((b - a) > eps)
-            {
-                if (F(x1) < F(x2))
-                {
-                    a = x1;
-                    x1 = a + 0.381966 * (b - a);
-                    x2 = a + 0.618034 * (b - a);
-                }
-                if (F(x1) > F(x2))
-                {
-                    b = x2;
-                    x1 = a + 0.381966 * (b - a);
-                    x2 = a + 0.618034 * (b - a);
-                }
-                n++;
-            }
+            
+            _goldenMethod.Search(fx, a, b, 0.001);
 
             // Вывод результатов
             resultText.Text = "Результат работы:";
-            lblResult.Text = "Экстремум функции f(" + (b + a) / 2.0 + ") = " + F((b + a) / 2.0);
-            lblSteps.Text = "Решение достигнуто за " + n + " шагов.";
+            lblResult.Text = "Экстремум функции: " + _goldenMethod.Optimal;
+            lblSteps.Text = "Решение достигнуто за " + _goldenMethod.Steps + " шагов.";
         }
         
         // Пользовательский класс TextBox с плейсхолдером
